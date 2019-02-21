@@ -1,10 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import os
 
+os.system('rm /etc/proxychains.conf')
+os.system('cp /etc/proxychains.conf.bak /etc/proxychains.conf')
 url = "https://www.kuaidaili.com/free/inha/"
 urls = []
-filename = "I://ip.txt"
+filename = "/etc/proxychains.conf"
 headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
     }
@@ -29,7 +32,7 @@ for url in urls:
                     timeout=3
                     )
                 with open(filename, "a+") as f:
-                    f.write(http)
+                    f.write("http "+http)
                     f.write("\n")
             except BaseException as e:
                 print(e)
