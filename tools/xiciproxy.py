@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
 
-a=0
-filename = "I://ip.csv"
+
+filename = "I://ip.txt"
 url = "https://www.xicidaili.com/wt/"
 urls = []
 ips = []
@@ -25,7 +24,7 @@ for i in urls:
         
         http = ip+":"+port
         try:
-            proxy={
+            proxy = {
                 'http': http
                 
             }
@@ -36,10 +35,10 @@ for i in urls:
                 timeout=3
                 )
             ips.append(http)
-            with open(filename, "w+") as f:
-                con = http +','+ res.elapsed.total_seconds()
-                f.write(con)
+            with open(filename, "a+") as f:
+                con = http + ',' + str(res.elapsed.total_seconds())
+                f.write(str(http)+'\n')
+                print(con)
         except BaseException as e:
-            a=a+1
-            print(a)
-    print(i)
+            print(e)
+    
