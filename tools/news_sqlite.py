@@ -22,14 +22,14 @@ def soup(res):
             save_news_to_db(IP, Port)
 
 
-#def createdb():
-#    try:
-#        connect = sqlite3.connect('database.db')
-#        cursor = connect.cursor()
-#  e5t      create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
-#        cursor.execute(create_news_table)
-#    except BaseException as e:
-#        print(e)
+def createdb():
+    try:
+        connect = sqlite3.connect('database.db')
+        cursor = connect.cursor()
+  e5t      create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
+        cursor.execute(create_news_table)
+    except BaseException as e:
+        print(e)
 
 
 def save_news_to_db(title, news_time):
