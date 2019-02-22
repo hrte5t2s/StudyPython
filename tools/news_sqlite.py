@@ -26,7 +26,7 @@ def soup(res):
 #    try:
 #        connect = sqlite3.connect('database.db')
 #        cursor = connect.cursor()
-#        create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
+#  e5t      create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
 #        cursor.execute(create_news_table)
 #    except BaseException as e:
 #        print(e)
