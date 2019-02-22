@@ -26,8 +26,11 @@ def createdb():
     try:
         connect = sqlite3.connect('database.db')
         cursor = connect.cursor()
-  e5t      create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
+        create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
         cursor.execute(create_news_table)
+        connect.commit()
+        cursor.close()
+        connect.close()
     except BaseException as e:
         print(e)
 
@@ -37,7 +40,7 @@ def save_news_to_db(title, news_time):
     cursor = connect.cursor()
     create_news_table = "CREATE TABLE News(id INTEGER PRIMARY KEY, title TEXT, time TEXT)"
     cursor.execute(create_news_table)
-    insert_sql = "INSERT INTO News(title, score) VALUES('"+str(title)+"','" + str(news_time)+"')"
+    insert_sql = "INSERT INTO News(title, score) VALUES('{title}','{time}')".format(title=title, time=news_time)
     cursor.execute(insert_sql)
     print("save success")
     connect.commit()
