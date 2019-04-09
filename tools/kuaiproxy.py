@@ -7,6 +7,7 @@ os.system('rm /etc/proxychains.conf')
 os.system('cp /etc/proxychains.conf.bak /etc/proxychains.conf')
 url = "https://www.kuaidaili.com/free/inha/"
 urls = []
+
 filename = "/etc/proxychains.conf"
 headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
