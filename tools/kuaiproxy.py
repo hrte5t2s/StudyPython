@@ -32,10 +32,10 @@ for url in urls:
                     timeout=3
                     )
                 with open(filename, "a+") as f:
-                    f.write("http "+ IP + Port)
+                    f.write("http "+ IP +" "+ Port)
                     f.write("\n")
             except BaseException as e:
-                #print(e)
+                print(e)
     except BaseException as e:
         print(e)
     time.sleep(1)
